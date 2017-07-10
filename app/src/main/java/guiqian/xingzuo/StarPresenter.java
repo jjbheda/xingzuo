@@ -6,4 +6,5 @@ package guiqian.xingzuo;
 
 public interface StarPresenter {
     void getStraData();
+    void getJieMengData();
 }
