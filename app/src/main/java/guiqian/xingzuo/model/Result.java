@@ -1,4 +1,4 @@
-package guiqian.xingzuo;
+package guiqian.xingzuo.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

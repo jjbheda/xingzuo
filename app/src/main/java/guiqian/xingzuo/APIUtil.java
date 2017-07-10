@@ -34,7 +34,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class APIUtil {
 
-    public static final String ENDPOINT_URL = "http://api.avatardata.cn/Constellation/";
+    public static final String XINGZUO_YUNSHI = "http://api.avatardata.cn/";
 
     private static APIUtil instance;
 
@@ -56,7 +56,7 @@ public class APIUtil {
             OkHttpClient client = new OkHttpClient();
 //            client.interceptors().add(new LoggingInterceptor());
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(ENDPOINT_URL)
+                    .baseUrl(XINGZUO_YUNSHI)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();

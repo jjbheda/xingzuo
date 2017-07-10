@@ -1,16 +1,19 @@
-package guiqian.xingzuo;
+package guiqian.xingzuo.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by jiangjingbo on 2017/7/9.
- */
-public class Destination {
+import java.util.List;
 
-    @SerializedName("result1")
+/**
+ * Created by jiangjingbo on 2017/7/10.
+ */
+
+public class Dream  {
+
+    @SerializedName("result")
     @Expose
-    private Result result1;
+    private List<DreamResult> result = null;
     @SerializedName("error_code")
     @Expose
     private Integer errorCode;
@@ -18,12 +21,12 @@ public class Destination {
     @Expose
     private String reason;
 
-    public Result getResult() {
-        return result1;
+    public List<DreamResult> getResult() {
+        return result;
     }
 
-    public void setResult(Result result) {
-        this.result1 = result;
+    public void setResult(List<DreamResult> result) {
+        this.result = result;
     }
 
     public Integer getErrorCode() {

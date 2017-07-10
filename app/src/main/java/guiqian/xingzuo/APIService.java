@@ -24,28 +24,30 @@
 
 package guiqian.xingzuo;
 
-import org.w3c.dom.Comment;
-import java.util.List;
+import guiqian.xingzuo.model.Destination;
+import guiqian.xingzuo.model.Dream;
 import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 /**
  * @author Carlos Piñan
  */
 public interface APIService {
 
-    @GET("Query")
+    @GET("Constellation/Query")
     Call<Destination> getDestination(
             @Query("key") String key,
             @Query("consName") String consName,
             @Query("type") String type,
             @Query("dtype") String dtype,
             @Query("format") boolean format
+    );
+
+    @GET("ZhouGongJieMeng/LookUp")
+    Call<Dream> getDreamParse(
+            @Query("key") String key,
+            @Query("keyword") String keyword
+
     );
 
 }
