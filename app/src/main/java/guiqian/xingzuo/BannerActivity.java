@@ -31,35 +31,35 @@ public class BannerActivity extends AppCompatActivity{
         setContentView(R.layout.banner_main_layout);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        final LinearLayout pointGroup = (LinearLayout) findViewById(R.id.pointgroup);
-
-        // 准备显示的图片集合
+//        final LinearLayout pointGroup = (LinearLayout) findViewById(R.id.pointgroup);
+//
+//        // 准备显示的图片集合
         mList = new ArrayList<>();
         for (int i = 0; i < mImages.length; i++) {
             ImageView imageView = new ImageView(this);
             // 将图片设置到ImageView控件上
             imageView.setImageResource(mImages[i]);
-
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);//铺满屏幕
             // 将ImageView控件添加到集合
             mList.add(imageView);
 
             // 制作底部小圆点
-            ImageView pointImage = new ImageView(this);
-            pointImage.setImageResource(R.drawable.shape_point_selector);
-
-            // 设置小圆点的布局参数
-            int PointSize = getResources().getDimensionPixelSize(R.dimen.point_size);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(PointSize, PointSize);
-
-            if (i > 0) {
-                params.leftMargin = getResources().getDimensionPixelSize(R.dimen.point_margin);
-                pointImage.setSelected(false);
-            } else {
-                pointImage.setSelected(true);
-            }
-            pointImage.setLayoutParams(params);
-            // 添加到容器里
-            pointGroup.addView(pointImage);
+//            ImageView pointImage = new ImageView(this);
+//            pointImage.setImageResource(R.drawable.shape_point_selector);
+//
+//            // 设置小圆点的布局参数
+//            int PointSize = getResources().getDimensionPixelSize(R.dimen.point_size);
+//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(PointSize, PointSize);
+//
+//            if (i > 0) {
+//                params.leftMargin = getResources().getDimensionPixelSize(R.dimen.point_margin);
+//                pointImage.setSelected(false);
+//            } else {
+//                pointImage.setSelected(true);
+//            }
+//            pointImage.setLayoutParams(params);
+//            // 添加到容器里
+//            pointGroup.addView(pointImage);
         }
 
         viewPager.setAdapter(new MyAdapter());
@@ -80,9 +80,9 @@ public class BannerActivity extends AppCompatActivity{
                 position = position % mList.size();
 
                 // 设置当前页面选中
-                pointGroup.getChildAt(position).setSelected(true);
-                // 设置前一页不选中
-                pointGroup.getChildAt(lastPosition).setSelected(false);
+//                pointGroup.getChildAt(position).setSelected(true);
+//                // 设置前一页不选中
+//                pointGroup.getChildAt(lastPosition).setSelected(false);
 
                 // 替换位置
                 lastPosition = position;
