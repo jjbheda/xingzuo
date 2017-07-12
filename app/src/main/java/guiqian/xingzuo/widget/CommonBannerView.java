@@ -75,16 +75,16 @@ public class CommonBannerView extends FrameLayout {
 				return false;
 			}
 		});
-//		mGroup = (ViewGroup) findViewById(R.id.viewGroup);
+		mGroup = (ViewGroup) findViewById(R.id.viewGroup);
 		
 	}
 	
-	public void loadData(Context context, List<BannerModel> BannerList) {
+	public void loadData(Context context, List<BannerModel> bannerList) {
 		// 清除所有子视图
-//		mGroup.removeAllViews();
+		mGroup.removeAllViews();
 		// 图片广告数量
-		int imageCount = BannerList.size();
-		mBannerList = BannerList;
+		int imageCount = bannerList.size();
+		mBannerList = bannerList;
 		mImageViews = new ImageView[imageCount];
 		
 		for (int i = 0; i < imageCount; i++) {
@@ -95,9 +95,9 @@ public class CommonBannerView extends FrameLayout {
 			mImageView.setPadding(padding.left, padding.top, padding.right, padding.bottom);
 			mImageViews[i] = mImageView;
 			mImageViews[i].setImageBitmap(getPointWithCache(i == 0));
-//			mGroup.addView(mImageViews[i]);
+			mGroup.addView(mImageViews[i]);
 		}
-		ImageCycleAdapter mAdvAdapter = new ImageCycleAdapter(mContext, (List<BannerModel>)BannerList);
+		ImageCycleAdapter mAdvAdapter = new ImageCycleAdapter(mContext, (List<BannerModel>)bannerList);
 		mViewPager.setAdapter(mAdvAdapter);
 		
           
@@ -239,9 +239,10 @@ public class CommonBannerView extends FrameLayout {
 				imageView = mImageViewCacheList.remove(0);
 			}
 			imageView.setTag(imageUrl);
+            imageView.setImageResource(resourceId);
+			imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 			container.addView(imageView);
 //			imageView.displayLargeImageWithProgress(imageUrl);
-			imageView.setImageResource(resourceId);
 //			GSImageHelper.displayImage(imageUrl, imageView);
 			return imageView;
 		}

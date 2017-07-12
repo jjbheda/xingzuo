@@ -9,40 +9,53 @@
 
     <guiqian.xingzuo.widget.CommonBannerView
         android:id="@+id/home_banner"
-        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_height="120dp"
-        android:layout_alignParentTop="true">
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimaryDark">
     </guiqian.xingzuo.widget.CommonBannerView>
+
+    <LinearLayout
+        android:id="@+id/images_bord_lt"
+        android:layout_below="@+id/home_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <guiqian.xingzuo.widget.RoundImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/destiny_01"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/xingzuowang"
-        android:layout_below="@+id/home_banner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="星座大王"
-        android:textSize="22sp"
-        android:gravity="center"
-        android:textColor="#000000"
+        android:layout_below="@+id/images_bord_lt"
         android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="星座大王"
+        android:textColor="#000000"
+        android:textSize="22sp"
         />
 
 
-        <Button
-            android:layout_below="@+id/xingzuowang"
-            android:id="@+id/btn_dream"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="@string/dream_btn"
-            />
+    <Button
+        android:id="@+id/btn_dream"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/xingzuowang"
+        android:text="@string/dream_btn"
+        />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/et_dream"
-            android:layout_below="@+id/btn_dream" />
-
+    <EditText
+        android:id="@+id/et_dream"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/btn_dream"/>
 
 
 </RelativeLayout>
