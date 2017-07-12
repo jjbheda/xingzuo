@@ -6,7 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="guiqian.xingzuo.MainActivity">
+
+    <guiqian.xingzuo.widget.CommonBannerView
+        android:id="@+id/home_banner"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </guiqian.xingzuo.widget.CommonBannerView>
+
     <TextView
+        android:id="@+id/xingzuowang"
+        android:layout_below="@+id/home_banner"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="星座大王"
@@ -18,6 +30,7 @@
 
 
         <Button
+            android:layout_below="@+id/xingzuowang"
             android:id="@+id/btn_dream"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -28,8 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:id="@+id/et_dream"
-
-            />
+            android:layout_below="@+id/btn_dream" />
 
 
 

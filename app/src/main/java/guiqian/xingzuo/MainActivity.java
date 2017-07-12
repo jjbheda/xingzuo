@@ -4,8 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -13,6 +17,8 @@ import butterknife.OnClick;
 import guiqian.xingzuo.model.Destination;
 import guiqian.xingzuo.model.Dream;
 import guiqian.xingzuo.viewModel.StarView;
+import guiqian.xingzuo.widget.BannerModel;
+import guiqian.xingzuo.widget.CommonBannerView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +30,7 @@ import retrofit2.Response;
  *
  */
 public class MainActivity extends AppCompatActivity  implements StarView{
+    CommonBannerView mBannerView;
 
     @BindView(R.id.et_dream)
     EditText mEditTv;
@@ -35,6 +42,20 @@ public class MainActivity extends AppCompatActivity  implements StarView{
         ButterKnife.bind(this);
         starPresenter = new StarPresenterImpl(this);
         starPresenter.getStraData();
+        mBannerView = (CommonBannerView) findViewById(R.id.home_banner);
+        initView();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mBannerView.pushImageCycle();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mBannerView.startImageCycle();
     }
 
     @OnClick(R.id.btn_dream)
@@ -45,6 +66,27 @@ public class MainActivity extends AppCompatActivity  implements StarView{
     @Override
     public void showProcess() {
 
+    }
+
+
+    public void initView(){
+//        ViewGroup.LayoutParams bvlp = mBannerView.getLayoutParams();
+//        bvlp.height = (int) ((float) getResources().getDisplayMetrics().widthPixels / (64.0 / 19.0));
+//
+//        mBannerView.setLayoutParams(bvlp);
+        List<BannerModel> bannerList = new ArrayList<>();
+        BannerModel bannerModel = new BannerModel();
+        bannerModel.resourceId = R.mipmap.destiny_01;
+
+        BannerModel bannerModel2 = new BannerModel();
+        bannerModel2.resourceId = R.mipmap.destiny_02;
+
+        BannerModel bannerModel3 = new BannerModel();
+        bannerModel3.resourceId = R.mipmap.destiny_03;
+        bannerList.add(bannerModel);
+        bannerList.add(bannerModel2);
+        bannerList.add(bannerModel3);
+        mBannerView.loadData(this, bannerList);
     }
 
     @Override
