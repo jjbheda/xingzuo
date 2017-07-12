@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity  implements StarView{
     public void initView(){
 //        ViewGroup.LayoutParams bvlp = mBannerView.getLayoutParams();
 //        bvlp.height = (int) ((float) getResources().getDisplayMetrics().widthPixels / (64.0 / 19.0));
-//
+////
 //        mBannerView.setLayoutParams(bvlp);
         List<BannerModel> bannerList = new ArrayList<>();
         BannerModel bannerModel = new BannerModel();

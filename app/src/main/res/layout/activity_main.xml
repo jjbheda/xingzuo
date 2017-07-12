@@ -9,11 +9,11 @@
 
     <guiqian.xingzuo.widget.CommonBannerView
         android:id="@+id/home_banner"
+        android:background="@color/colorPrimaryDark"
         android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
         android:layout_height="120dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentTop="true">
     </guiqian.xingzuo.widget.CommonBannerView>
 
     <TextView

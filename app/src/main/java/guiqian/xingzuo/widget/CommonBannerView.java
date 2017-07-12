@@ -75,13 +75,13 @@ public class CommonBannerView extends FrameLayout {
 				return false;
 			}
 		});
-		mGroup = (ViewGroup) findViewById(R.id.viewGroup);
+//		mGroup = (ViewGroup) findViewById(R.id.viewGroup);
 		
 	}
 	
 	public void loadData(Context context, List<BannerModel> BannerList) {
 		// 清除所有子视图
-		mGroup.removeAllViews();
+//		mGroup.removeAllViews();
 		// 图片广告数量
 		int imageCount = BannerList.size();
 		mBannerList = BannerList;
@@ -95,7 +95,7 @@ public class CommonBannerView extends FrameLayout {
 			mImageView.setPadding(padding.left, padding.top, padding.right, padding.bottom);
 			mImageViews[i] = mImageView;
 			mImageViews[i].setImageBitmap(getPointWithCache(i == 0));
-			mGroup.addView(mImageViews[i]);
+//			mGroup.addView(mImageViews[i]);
 		}
 		ImageCycleAdapter mAdvAdapter = new ImageCycleAdapter(mContext, (List<BannerModel>)BannerList);
 		mViewPager.setAdapter(mAdvAdapter);
