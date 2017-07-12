@@ -20,7 +20,7 @@ import java.util.List;
 public class BannerActivity extends AppCompatActivity{
 
     // 图片资源
-    private int[] mImages = {R.mipmap.destiny_01, R.mipmap.destiny_02, R.mipmap.destiny_03};
+    private int[] mImages = {R.mipmap.destiny_01, R.mipmap.destiny_02, R.mipmap.destiny_03,R.mipmap.images};
     private List<ImageView> mList;
     Handler mHandler = new Handler();
 

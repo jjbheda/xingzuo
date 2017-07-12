@@ -13,6 +13,7 @@
         <activity android:name=".MainActivity">
 
         </activity>
+        <activity android:name=".BannerActivity"/>
         <activity android:name=".SpashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

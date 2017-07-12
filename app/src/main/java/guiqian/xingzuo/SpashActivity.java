@@ -19,7 +19,7 @@ public class SpashActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SpashActivity.this,MainActivity.class);
+                Intent intent = new Intent(SpashActivity.this,BannerActivity.class);
                 startActivity(intent);
                 finish();
             }
