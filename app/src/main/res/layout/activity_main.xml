@@ -53,18 +53,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="每月运势"/>
+                        android:text="生肖运程"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
+                    android:id="@+id/lv_xzys"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <guiqian.xingzuo.widget.RoundImageView
+                        android:id="@+id/roundImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="70dp"
                         android:layout_marginTop="15dp"
@@ -75,7 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="每周运势"/>
+                        android:text="星座运势"/>
 
                 </LinearLayout>
 
@@ -84,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:id="@+id/jiemeng_lt"
                     android:orientation="vertical">
 
                     <guiqian.xingzuo.widget.RoundImageView
@@ -125,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="每周运势"/>
+                        android:text="星座学堂"/>
 
                 </LinearLayout>
 
@@ -147,7 +150,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="每周运势"/>
+                        android:text="祈福开运"/>
 
                 </LinearLayout>
 

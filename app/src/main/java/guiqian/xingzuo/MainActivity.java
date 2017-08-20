@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,17 +24,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 /**
  * MVP 形式   StarView  为交互View  Model
  * StarPresenter 为 数据Presenter
  *Activity 注入 Presenter中
  *
  */
-public class MainActivity extends AppCompatActivity  implements StarView{
+public class MainActivity extends AppCompatActivity  implements StarView,View.OnClickListener{
     CommonBannerView mBannerView;
 
     @BindView(R.id.et_dream)
     EditText mEditTv;
+
+    @BindView(R.id.lv_xzys)
+    LinearLayout mXzysLt;
+
+    @BindView(R.id.jiemeng_lt)
+    LinearLayout mJieMengLt;
+
     StarPresenterImpl starPresenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +51,7 @@ public class MainActivity extends AppCompatActivity  implements StarView{
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         starPresenter = new StarPresenterImpl(this);
-        starPresenter.getStraData();
+
         mBannerView = (CommonBannerView) findViewById(R.id.home_banner);
         initView();
     }
@@ -87,6 +97,8 @@ public class MainActivity extends AppCompatActivity  implements StarView{
         bannerList.add(bannerModel2);
         bannerList.add(bannerModel3);
         mBannerView.loadData(this, bannerList);
+        mXzysLt.setOnClickListener(this);
+        mJieMengLt.setOnClickListener(this);
     }
 
     @Override
@@ -97,5 +109,18 @@ public class MainActivity extends AppCompatActivity  implements StarView{
     @Override
     public void showJieMengData(Dream destination) {
         Toast.makeText(MainActivity.this,destination.getResult().toString(),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if (id == R.id.lv_xzys){
+            Toast.makeText(MainActivity.this,"获取星座数据",Toast.LENGTH_SHORT).show();
+            starPresenter.getStraData();
+        } else if (id == R.id.jiemeng_lt){
+            Toast.makeText(MainActivity.this,"获取解梦数据",Toast.LENGTH_SHORT).show();
+            starPresenter.getJieMengData();
+        }
+
     }
 }
