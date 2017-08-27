@@ -26,6 +26,7 @@ package guiqian.xingzuo;
 
 import guiqian.xingzuo.model.Destination;
 import guiqian.xingzuo.model.Dream;
+import guiqian.xingzuo.model.PairResult;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -38,6 +39,7 @@ import static android.R.attr.key;
 public interface APIService {
 
     public static String XingzuoKey = "efa739632f4a49bda66ed726a55490af";
+    public static String StarPairKey = "b80c49a2d846467888c6a8a5744e4074";
 
     @GET("Constellation/Query")
     Call<Destination> getDestination(
@@ -52,6 +54,14 @@ public interface APIService {
     Call<Dream> getDreamParse(
             @Query("key") String key,
             @Query("keyword") String keyword
+
+    );
+
+    @GET("XingZuoPeiDui/LookUp")
+    Call<PairResult> starPair(
+            @Query("key") String key,
+            @Query("xingzuo1") String xingzuo1,
+            @Query("xingzuo2") String xingzuo2
 
     );
 

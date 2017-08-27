@@ -16,6 +16,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import guiqian.xingzuo.jiemeng.JiemengActivity;
 import guiqian.xingzuo.model.Destination;
 import guiqian.xingzuo.model.Dream;
 import guiqian.xingzuo.twelveStar.XzysActivity;
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity  implements StarView,View.On
 
     @OnClick(R.id.btn_dream)
     public void submit(View view) {
-        starPresenter.getJieMengData();
     }
 
     @Override
@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity  implements StarView,View.On
             startActivity(intent);
 
         } else if (id == R.id.jiemeng_lt){
-            Toast.makeText(MainActivity.this,"获取解梦数据",Toast.LENGTH_SHORT).show();
-            starPresenter.getJieMengData();
+            Intent intent = new Intent(MainActivity.this, JiemengActivity.class);
+            startActivity(intent);
         }
 
     }

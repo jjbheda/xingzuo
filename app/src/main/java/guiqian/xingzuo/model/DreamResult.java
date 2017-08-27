@@ -13,7 +13,7 @@ public class DreamResult {
     private String title;
     @SerializedName("content")
     @Expose
-    private String content;
+    private String content = "";
     @SerializedName("type")
     @Expose
     private String type;

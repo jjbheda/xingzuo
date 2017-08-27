@@ -6,5 +6,5 @@ package guiqian.xingzuo;
 
 public interface StarPresenter {
     void getStraData(String xingzuo,String time);
-    void getJieMengData();
+    void getJieMengData(String keyWord);
 }

@@ -41,7 +41,6 @@ public class XzysActivity extends Activity implements StarView{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.xzys_layout);
-        starPresenter = new StarPresenterImpl(this);
 
         mXingzuoList.add("白羊");
         mXingzuoList.add("金牛");

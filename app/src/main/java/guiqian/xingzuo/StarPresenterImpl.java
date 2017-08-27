@@ -46,8 +46,8 @@ public class StarPresenterImpl implements StarPresenter {
     }
 
     @Override
-    public void getJieMengData() {
-        dreamCallPost = APIUtil.get().getRetrofitService().getDreamParse("67a232c0764a428787986119d4dadf12","妈妈");
+    public void getJieMengData(String keyWord) {
+        dreamCallPost = APIUtil.get().getRetrofitService().getDreamParse("67a232c0764a428787986119d4dadf12",keyWord);
 
         dreamCallPost.enqueue(new Callback<Dream>() {
 

@@ -21,6 +21,7 @@
             </intent-filter>
             </activity>
         <activity android:name=".twelveStar.XzysActivity"></activity>
+        <activity android:name=".jiemeng.JiemengActivity"></activity>
     </application>
 
 </manifest>
