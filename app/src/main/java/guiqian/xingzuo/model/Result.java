@@ -26,7 +26,7 @@ public class Result {
     private String date;
     @SerializedName("all")
     @Expose
-    private String all;
+    private String all = "";
     @SerializedName("color")
     @Expose
     private String color;

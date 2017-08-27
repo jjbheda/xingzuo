@@ -1,5 +1,6 @@
 package guiqian.xingzuo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import guiqian.xingzuo.model.Destination;
 import guiqian.xingzuo.model.Dream;
+import guiqian.xingzuo.twelveStar.XzysActivity;
 import guiqian.xingzuo.viewModel.StarView;
 import guiqian.xingzuo.widget.BannerModel;
 import guiqian.xingzuo.widget.CommonBannerView;
@@ -115,8 +117,12 @@ public class MainActivity extends AppCompatActivity  implements StarView,View.On
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.lv_xzys){
-            Toast.makeText(MainActivity.this,"获取星座数据",Toast.LENGTH_SHORT).show();
-            starPresenter.getStraData();
+//            Toast.makeText(MainActivity.this,"获取星座数据",Toast.LENGTH_SHORT).show();
+//            starPresenter.getStraData();
+
+            Intent intent = new Intent(MainActivity.this, XzysActivity.class);
+            startActivity(intent);
+
         } else if (id == R.id.jiemeng_lt){
             Toast.makeText(MainActivity.this,"获取解梦数据",Toast.LENGTH_SHORT).show();
             starPresenter.getJieMengData();

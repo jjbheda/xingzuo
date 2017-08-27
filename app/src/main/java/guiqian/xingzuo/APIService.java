@@ -29,10 +29,15 @@ import guiqian.xingzuo.model.Dream;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
+
+import static android.R.attr.key;
+
 /**
  * @author Carlos Piñan
  */
 public interface APIService {
+
+    public static String XingzuoKey = "efa739632f4a49bda66ed726a55490af";
 
     @GET("Constellation/Query")
     Call<Destination> getDestination(

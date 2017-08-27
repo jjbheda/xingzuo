@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+   <android.support.v7.widget.Toolbar
+       android:id="@+id/detailTitle"
+       style="@style/ToolBarStyle"
+       app:title="星座运势"
+       app:titleTextColor="@color/white"
+       app:navigationIcon="@mipmap/icon_back"/>
+   <GridView
+       android:id="@+id/gv_12xingzuo"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:columnWidth="100dp"
+       android:gravity="center"
+       android:horizontalSpacing="3dp"
+       android:numColumns="4"
+       android:background="#DCDCDC"
+       android:cacheColorHint="@color/colorPrimaryDark"
+       android:verticalSpacing="3dp"
+       />
+   <LinearLayout
+       android:layout_marginTop="5dp"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:orientation="horizontal"
+       android:background="@color/grey"
+       >
+      <TextView
+          android:id="@+id/today_yunshi"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="今日运势"
+          android:gravity="center"
+          android:background="@color/colorAccent"
+          />
+
+       <View
+           android:layout_width="0.5dp"
+           android:layout_height="40dp"
+           android:background="@color/colorPrimaryDark"
+           android:layout_gravity="center"
+           />
+
+      <TextView
+          android:id="@+id/month_yunshi"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:text="本月运势"
+          />
+
+   </LinearLayout>
+
+   <TextView
+       android:padding="15dp"
+       android:id="@+id/yunshi_content"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textColor="@color/colorAccent"
+       android:textSize="22sp"
+       android:text=""
+       />
+
+</LinearLayout>

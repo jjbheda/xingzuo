@@ -23,8 +23,8 @@ public class StarPresenterImpl implements StarPresenter {
         this.starView = starView;
     }
     @Override
-    public void getStraData() {
-        callPost = APIUtil.get().getRetrofitService().getDestination("efa739632f4a49bda66ed726a55490af","金牛座", "today","JSON",true);
+    public void getStraData(String time,String xingzuo) {
+        callPost = APIUtil.get().getRetrofitService().getDestination(APIService.XingzuoKey,xingzuo, time,"JSON",true);
 
         callPost.enqueue(new Callback<Destination>() {
 
