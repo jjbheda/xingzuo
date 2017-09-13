@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#e4e4e4"
+    >
+  <TextView
+      android:id="@+id/tv_fengshui_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#e4e4e4"
+      android:textSize="20sp"
+      android:text="喜欢这样的衣服"
+      android:textStyle="bold"
+      />
+
+  <TextView
+      android:id="@+id/tv_fengshui_content"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:autoLink="web"
+      android:textSize="16sp"
+      android:text="如今社会竞争激烈，很多人为了拼事业耽误了自己的终身大事，等到想找个人好好过日子的时候，发现身边异性少，而且自己的"
+     android:textColor="@color/colorAccent"
+      />
+
+</LinearLayout>

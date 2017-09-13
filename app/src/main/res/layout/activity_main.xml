@@ -1,282 +1,552 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-    <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="guiqian.xingzuo.MainActivity">
-
-        <guiqian.xingzuo.widget.CommonBannerView
-            android:id="@+id/home_banner"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/colorPrimaryDark">
-        </guiqian.xingzuo.widget.CommonBannerView>
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lt_bottom">
 
         <LinearLayout
-            android:id="@+id/images_bord_lt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/home_banner"
-            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:paddingBottom="60dp"
+            android:orientation="vertical">
+
+            <guiqian.xingzuo.widget.CommonBannerView
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorPrimaryDark">
+            </guiqian.xingzuo.widget.CommonBannerView>
+
+            <LinearLayout
+                android:id="@+id/images_bord_lt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_banner"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/lv_xzys"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            android:id="@+id/roundImageView"
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/xingzuoys"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="星座运势"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        />
+                    <LinearLayout
+                        android:id="@+id/jiemeng_lt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/zgjm"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="周公解梦"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        />
+                    <LinearLayout
+                        android:id="@+id/fengshui_lt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            style="@style/img_spec"
+                            android:src="@mipmap/fengshui"
+                            android:scaleType="fitCenter"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="风水"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/cjk"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="传统文化"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#e4e4e4"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/qft"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="祈福开运"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/hehua"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="许愿池"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/destiny_02"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="每周运势"/>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#e4e4e4"
+                        android:visibility="invisible"
+                        />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="invisible">
+
+                        <guiqian.xingzuo.widget.RoundImageView
+                            style="@style/img_spec"
+                            android:scaleType="fitCenter"
+                            android:src="@mipmap/destiny_02"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text=""/>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#e4e4e4"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:paddingLeft="15dp"
+                android:text="【星座分析】"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e4e4"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:background="@drawable/main_tab_selector"
+                    android:orientation="vertical">
+
+                    <guiqian.xingzuo.widget.RoundImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/ys_jrys"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="今日运势"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e4e4e4"
+                    />
+                <LinearLayout
+                    android:id="@+id/lv_xzqg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <guiqian.xingzuo.widget.RoundImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/xz_qg_9"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="星座情感"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e4e4e4"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/xz_btn_11"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="星座性格"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#e4e4e4"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:paddingLeft="15dp"
+                android:text="【在线算命】"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e4e4"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <guiqian.xingzuo.widget.RoundImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/zxsm_bazi"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="八字算命"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e4e4e4"
+                    />
+                <LinearLayout
+                    android:id="@+id/lv_bzsm"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <guiqian.xingzuo.widget.RoundImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/zxsb_mz"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="姓名吉凶"/>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#e4e4e4"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/img_spec"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/zxsm_guany"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/xingzuoys_tv"
+                        android:text="观音灵签"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e4e4e4"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lt_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/home_rt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/main_tab_selector"
+            android:clickable="true"
+            android:gravity="center"
             >
 
-            <LinearLayout
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/home_ic_fortunetelling"
+                />
+
+            <TextView
+                android:id="@+id/home_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_below="@+id/iv_home"
+                android:gravity="center"
+                android:text="命理主页"
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                />
+        </RelativeLayout>
 
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/destiny_01"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/main_tab_selector"
+            android:gravity="center"
+            >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="生肖运程"/>
+            <ImageView
+                android:id="@+id/iv_xingzuo"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:padding="1dp"
+                android:src="@mipmap/main_host_bg04"
+                />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:id="@+id/lv_xzys"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:id="@+id/roundImageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/destiny_02"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="星座运势"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:id="@+id/jiemeng_lt"
-                    android:orientation="vertical">
-
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/images"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="周公解梦"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/yunshi_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_below="@+id/iv_xingzuo"
+                android:gravity="center"
+                android:text="星座运势"/>
+        </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/destiny_02"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="星座配对"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/destiny_02"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="祈福开运"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:visibility="invisible">
-
-                    <guiqian.xingzuo.widget.RoundImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp"
-                        android:layout_marginTop="15dp"
-                        android:scaleType="fitCenter"
-                        android:src="@mipmap/destiny_02"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="每周运势"/>
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
-
-        <TextView
-            android:id="@+id/xingzuowang"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/images_bord_lt"
-            android:background="#888000"
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/main_tab_selector"
             android:gravity="center"
-            android:text="星座知识"
-            android:textColor="#000000"
-            android:textSize="22sp"/>
+            >
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
+            <ImageView
+                android:id="@+id/iv_fofa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/dj_tz"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/images_bord_lt"
-            android:background="#888000"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_fofa"
+                android:gravity="center"
+                android:text="佛法学习"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/main_tab_selector"
             android:gravity="center"
-            android:text="六道轮回"
-            android:textColor="#000000"
-            android:textSize="22sp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
+            >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="#888000"
-            android:gravity="center"
-            android:text="许愿池 慈航观世音菩萨"
-            android:textColor="#000000"
-            android:textSize="22sp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
+            <ImageView
+                android:id="@+id/iv_xuyuan"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/main_itembg02"
+                />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:background="#888000"
-            android:gravity="center"
-            android:text="许愿池 大愿地藏王菩萨"
-            android:textColor="#000000"
-            android:textSize="22sp"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
-
-        <Button
-            android:id="@+id/btn_dream"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/xingzuowang"
-            android:text="@string/dream_btn"
-            />
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#e4e4e4"
-            />
-
-
-        <EditText
-            android:id="@+id/et_dream"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/btn_dream"/>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_xuyuan"
+                android:gravity="center"
+                android:text="发心许愿"
+                />
+        </RelativeLayout>
 
     </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

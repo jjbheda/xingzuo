@@ -5,4 +5,12 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
     <color name="grey">#e4e4e4</color>
+    <color name="tab_grey">#e4e0d0</color>
+
+    <color name="text_filter_selected_color">#3ab9fb</color>
+    <color name="text_filter_normal_color">#444</color>
+    <color name="text_sort_pressed">#1491c5</color>
+    <color name="text_ttd_tab_select_color">#1091C5</color>
+    <color name="text_ttd_tab_defult_color">#666666</color>
+
 </resources>

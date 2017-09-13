@@ -4,12 +4,55 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-   <android.support.v7.widget.Toolbar
-       android:id="@+id/detailTitle"
-       style="@style/ToolBarStyle"
-       app:title="星座运势"
-       app:titleTextColor="@color/white"
-       app:navigationIcon="@mipmap/icon_back"/>
+   <guiqian.xingzuo.util.CommonTitleView
+       android:id="@+id/poi_title"
+       android:layout_width="match_parent"
+       android:layout_height="@dimen/title_height"
+       app:title_text="星座详情" />
+
+   <LinearLayout
+       android:id="@+id/indicator_layout"
+       android:layout_width="match_parent"
+       android:layout_height="45dip"
+       android:background="@color/white"
+       android:orientation="horizontal" >
+
+      <guiqian.xingzuo.widget.GSTabIndicator
+          android:id="@+id/gs_hs"
+          android:layout_width="match_parent"
+          android:layout_height="45dip"
+          android:fillViewport="true" >
+      </guiqian.xingzuo.widget.GSTabIndicator>
+   </LinearLayout>
+
+   <LinearLayout android:layout_width="match_parent"
+       android:layout_height="50dp"
+                 android:gravity="center"
+       android:orientation="horizontal">
+   <TextView
+       android:layout_width="0dp"
+       android:layout_weight="1"
+       android:layout_height="match_parent"
+       android:layout_gravity="center_vertical"
+       android:gravity="center"
+       android:text="请选择星座"
+
+       />
+      <TextView
+          android:id="@+id/xzName"
+          android:layout_width="0dp"
+          android:layout_weight="1"
+          android:layout_height="match_parent"
+          android:text="白羊座"
+          android:gravity="center"
+          android:layout_gravity="center_vertical"
+          />
+   </LinearLayout>
+   <android.support.v4.view.ViewPager
+       android:id="@+id/xingzuo_vp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent" >
+   </android.support.v4.view.ViewPager>
    <GridView
        android:id="@+id/gv_12xingzuo"
        android:layout_width="match_parent"
@@ -56,7 +99,8 @@
           />
 
    </LinearLayout>
-
+   <ScrollView android:layout_width="match_parent"
+       android:layout_height="wrap_content">
    <TextView
        android:padding="15dp"
        android:id="@+id/yunshi_content"
@@ -66,5 +110,5 @@
        android:textSize="22sp"
        android:text=""
        />
-
+   </ScrollView>
 </LinearLayout>

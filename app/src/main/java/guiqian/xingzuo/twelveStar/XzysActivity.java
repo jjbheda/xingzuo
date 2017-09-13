@@ -3,7 +3,9 @@ package guiqian.xingzuo.twelveStar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,15 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import guiqian.xingzuo.R;
 import guiqian.xingzuo.StarPresenterImpl;
@@ -25,86 +35,138 @@ import guiqian.xingzuo.viewModel.StarView;
  * Created by jiangjingbo on 2017/8/21.
  */
 
-public class XzysActivity extends Activity implements StarView{
+public class XzysActivity extends Activity
+//        implements StarView
+{
 
     GridView gv;
 
-    private ArrayList<String> mXingzuoList = new ArrayList();
-
-    TextView today_tv, week_tv,yunshi_content;
+    private static String QUERY_URL = "http://www.d1xz.net/yunshi/";
+    private ArrayList<String> mXingzuoNameList = new ArrayList<>();   //
+    private ArrayList<String> mXingzuoAddressList = new ArrayList<>();  //第一星座网地址
+    TextView today_tv, month_tv,yunshi_content;
     StarPresenterImpl starPresenter;
 
-    String mCurrentStarName = "白羊";
+    String mCurrentStarAddress = "Aries";
     String mCurrentStarTime = "today";
+    String yushiStr  = "";
+    private Handler handler;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.xzys_layout);
+        mXingzuoNameList.add("白羊座");
+        mXingzuoNameList.add("金牛座");
+        mXingzuoNameList.add("双子座");
+        mXingzuoNameList.add("巨蟹座");
+        mXingzuoNameList.add("狮子座");
+        mXingzuoNameList.add("处女座");
+        mXingzuoNameList.add("天秤座");
+        mXingzuoNameList.add("天蝎座");
+        mXingzuoNameList.add("射手座");
+        mXingzuoNameList.add("摩羯座");
+        mXingzuoNameList.add("水瓶座");
+        mXingzuoNameList.add("双鱼座");
 
-        mXingzuoList.add("白羊");
-        mXingzuoList.add("金牛");
-        mXingzuoList.add("双子");
-        mXingzuoList.add("巨蟹");
+        mXingzuoAddressList.add("Aries");
+        mXingzuoAddressList.add("Taurus");
+        mXingzuoAddressList.add("Gemini");
+        mXingzuoAddressList.add("Cancer");
 
-        mXingzuoList.add("狮子");
-        mXingzuoList.add("处女");
-        mXingzuoList.add("天秤");
-        mXingzuoList.add("天蝎");
+        mXingzuoAddressList.add("Leo");
+        mXingzuoAddressList.add("Virgo");
+        mXingzuoAddressList.add("Libra");
+        mXingzuoAddressList.add("Scorpio");
 
-        mXingzuoList.add("射手");
-        mXingzuoList.add("摩羯");
-        mXingzuoList.add("水瓶");
-        mXingzuoList.add("双鱼");
+        mXingzuoAddressList.add("Sagittarius");
+        mXingzuoAddressList.add("Capricorn");
+        mXingzuoAddressList.add("Aquarius");
+        mXingzuoAddressList.add("Pisces");
+
         gv = (GridView) findViewById(R.id.gv_12xingzuo);
 
         gv.setAdapter(new XZGridViewAdaper(this));
         today_tv = (TextView) findViewById(R.id.today_yunshi);
-        week_tv = (TextView) findViewById(R.id.month_yunshi);
+        month_tv = (TextView) findViewById(R.id.month_yunshi);
         yunshi_content = (TextView) findViewById(R.id.yunshi_content);
+        handler = new Handler();
 
         today_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 today_tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                week_tv.setBackgroundColor(getResources().getColor(R.color.grey));
+                month_tv.setBackgroundColor(getResources().getColor(R.color.grey));
                 mCurrentStarTime = "today";
-                starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+                showUIOnThread(mCurrentStarTime+"/"+mCurrentStarAddress);
+//                starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
             }
         });
 
-        week_tv.setOnClickListener(new View.OnClickListener() {
+        month_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                week_tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                month_tv.setBackgroundColor(getResources().getColor(R.color.colorAccent));
                 today_tv.setBackgroundColor(getResources().getColor(R.color.grey));
                 mCurrentStarTime = "month";
-                starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+                showUIOnThread(mCurrentStarTime+"/"+mCurrentStarAddress);
             }
         });
 
-        starPresenter = new StarPresenterImpl(this);
-        starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+//        starPresenter = new StarPresenterImpl(this);
+//        starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+        showUIOnThread(mCurrentStarTime+"/"+mCurrentStarAddress);
     }
 
-    @Override
-    public void showProcess() {
+    private void showUIOnThread(final String queryOption){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                showUI(queryOption);
+            }
+        }).start();
+    }
+
+    public void showUI(String queryOption){
+        Document doc = null;
+        final Element element = null;
+        String yunshiStr = null;
+        try {
+            doc = Jsoup.connect("http://www.d1xz.net/yunshi/"+queryOption).get();
+            if (queryOption.startsWith("today")){
+                yunshiStr = doc.select("div.txt").html();
+            } else {
+                Elements elements = doc.select("dd.fr");
+                StringBuffer sb = new StringBuffer();
+               for (int i =0;i<elements.size()-1;i++){
+                   sb.append(elements.get(i).html());
+               }
+
+                yunshiStr = sb.toString();
+            }
+
+            yushiStr = Html.fromHtml((yunshiStr)).toString();
+
+            handler.post(new Runnable() {
+                @Override
+                public void run() {
+                    handler.post(uiRunnable);
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
-    @Override
-    public void showYunshiData(Destination detination) {
-        Result result =  detination.getResult();
-        if (result.getSummary() != null && !result.getSummary().isEmpty())
-            yunshi_content.setText(result.getSummary().replace("。","。\n"));
-        else
-            yunshi_content.setText(result.getAll().replace("。","。\n"));
-    }
 
-    @Override
-    public void showJieMengData(Dream destination) {
-
-    }
+    Runnable uiRunnable = new Runnable() {
+        @Override
+        public void run() {
+                yunshi_content.setText(yushiStr.replace("。","。\n"));
+        }
+    };
 
     public class XZGridViewAdaper extends BaseAdapter{
         private Context context;
@@ -115,7 +177,7 @@ public class XzysActivity extends Activity implements StarView{
 
         @Override
         public int getCount() {
-            return mXingzuoList.size();
+            return mXingzuoNameList.size();
         }
 
         @Override
@@ -135,8 +197,8 @@ public class XzysActivity extends Activity implements StarView{
                 convertView = localinflater.inflate(R.layout.xzys_layoutem_item,null);
 
             }
-            final TextView textView = (TextView) convertView.findViewById(R.id.tv);
-            textView.setText(mXingzuoList.get(position));
+            final TextView textView = (TextView) convertView.findViewById(R.id.cotent_tv);
+            textView.setText(mXingzuoNameList.get(position));
             if (position ==0) {
                 textView.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
             }
@@ -146,12 +208,13 @@ public class XzysActivity extends Activity implements StarView{
                 public void onClick(View v) {
                     for (int i =0;i<gv.getChildCount();i++){
                         View view = gv.getChildAt(i);
-                        view.findViewById(R.id.tv).setBackgroundColor(context.getResources().getColor(R.color.grey));
+                        view.findViewById(R.id.cotent_tv).setBackgroundColor(context.getResources().getColor(R.color.grey));
                     }
                     textView.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
-                    mCurrentStarName = mXingzuoList.get(position);
-//                    Toast.makeText(XzysActivity.this,mCurrentStarName,Toast.LENGTH_SHORT).show();
-                    starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+                    mCurrentStarAddress = mXingzuoAddressList.get(position);
+                    Toast.makeText(XzysActivity.this,mXingzuoNameList.get(position),Toast.LENGTH_SHORT).show();
+//                    starPresenter.getStraData(mCurrentStarTime,mCurrentStarName+"座");
+                    showUIOnThread(mCurrentStarTime+"/"+mCurrentStarAddress);
                 }
             });
             return convertView;

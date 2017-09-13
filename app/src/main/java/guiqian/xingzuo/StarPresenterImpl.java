@@ -28,14 +28,14 @@ public class StarPresenterImpl implements StarPresenter {
 
         callPost.enqueue(new Callback<Destination>() {
 
-            @Override
-            public void onResponse(Call<Destination> call, Response<Destination> response) {
+                @Override
+                public void onResponse(Call<Destination> call, Response<Destination> response) {
 
-                Destination destination =   response.body();
-                if (destination.getErrorCode()==0){
-                   starView.showYunshiData(destination);
+                    Destination destination =   response.body();
+                    if (destination.getErrorCode()==0){
+                        starView.showYunshiData(destination);
+                    }
                 }
-            }
 
             @Override
             public void onFailure(Call<Destination> call, Throwable t) {

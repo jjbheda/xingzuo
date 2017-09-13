@@ -7,12 +7,14 @@
               android:background="#e4e4e4"
     >
   <TextView
-      android:id="@+id/tv"
+      android:id="@+id/cotent_tv"
       android:layout_width="match_parent"
       android:layout_height="50dp"
-      android:gravity="center"
       android:background="#e4e4e4"
+      android:textSize="20sp"
       android:textStyle="bold"
+      android:text="测试"
       />
+
 
 </LinearLayout>

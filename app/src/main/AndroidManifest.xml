@@ -22,6 +22,10 @@
             </activity>
         <activity android:name=".twelveStar.XzysActivity"></activity>
         <activity android:name=".jiemeng.JiemengActivity"></activity>
+        <activity android:name=".fengshui.FengshuiActivity"></activity>
+        <activity android:name=".fengshui.FengShuiDetailActivity"></activity>
+        <activity android:name=".base.GSCommonActivity"></activity>
+        <activity android:name=".base.GSBaseActivity"></activity>
     </application>
 
 </manifest>
